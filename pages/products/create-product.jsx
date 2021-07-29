@@ -11,6 +11,7 @@ import UploadImgSection from '~/components/Products/ImageUpload';
 import HeaderDashboard from '~/components/Shared/PageHeader';
 
 import { toggleDrawerMenu } from '~/store/app/action';
+import CustomOrder from '~/components/Products/AddProduct';
 
 const CreateProductPage = () => {
   const [session] = useSession();
@@ -20,10 +21,10 @@ const CreateProductPage = () => {
   }, []);
 
   const [categories, setCategories] = useState([]);
-  useEffect(async () => {
-    const categories = await Axios.get('http://localhost:4000/category');
-    setCategories(categories.data);
-  }, []);
+  // useEffect(async () => {
+  //   const categories = await Axios.get('http://localhost:4000/category');
+  //   setCategories(categories.data);
+  // }, []);
   const [ProductDetails, setProductDetails] = useState({});
 
   const handleChange = (e) => {
@@ -32,8 +33,6 @@ const CreateProductPage = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log(ProductDetails);
-
     e.preventDefault();
     Axios.post('http://localhost:4000/products', {
       SupplierID: session && session.user.name,
@@ -48,9 +47,10 @@ const CreateProductPage = () => {
         description="Martfury Create New Product "
       />
       <section className="ps-new-item">
-        <form className="ps-form ps-form--new-product" action="" method="get">
-          <div className="ps-form__content">
-            <div className="row">
+        <CustomOrder />
+        {/* <form className="ps-form ps-form--new-product" action="" method="get">
+          <div className="ps-form__content"> */}
+        {/* <div className="row">
               <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                 <figure className="ps-block--form-box">
                   <figcaption>General</figcaption>
@@ -389,7 +389,7 @@ const CreateProductPage = () => {
               Submit
             </button>
           </div>
-        </form>
+        </form> */}
       </section>
     </ContainerDefault>
   );
