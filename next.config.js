@@ -10,10 +10,10 @@ const withPlugins = require('next-compose-plugins');
 const withImages = require('next-images');
 
 const nextSettings = {
-    env: {
-        title: 'Martfury',
-        titleDescription: 'Admin Template',
-    },
+  env: {
+    title: 'Bigly24 - Seller',
+    titleDescription: 'Buy Big, Sell Big',
+  },
 };
 
 module.exports = withPlugins([withImages(), nextSettings]);
