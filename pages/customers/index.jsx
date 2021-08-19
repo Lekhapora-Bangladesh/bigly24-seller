@@ -21,7 +21,7 @@ const CustomersPage = () => {
     <ContainerDefault title="Customers">
       <HeaderDashboard
         title="Customers"
-        description="Martfury Customer Listing"
+        description="Bigly24 | Buy Big Sell Big"
       />
       <section className="ps-items-listing">
         <div className="ps-section__header simple">

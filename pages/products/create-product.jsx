@@ -44,7 +44,7 @@ const CreateProductPage = () => {
     <ContainerDefault title="Create new product">
       <HeaderDashboard
         title="Create Product"
-        description="Martfury Create New Product "
+        description="Bigly24 Create New Product "
       />
       <section className="ps-new-item">
         <CustomOrder />

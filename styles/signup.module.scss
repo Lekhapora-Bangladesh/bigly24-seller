@@ -1,0 +1,33 @@
+
+.header{
+    width:100% ;
+    background : #0b1c0c;
+    text-align: center;
+    padding: 20px 0;
+
+    @media screen and (max-width: 1200px) {
+        display: none;
+    }
+  }
+
+
+.container{
+    padding: 50px;
+
+    @media screen and (max-width: 1200px) {
+       padding-top: 100px;
+    }
+}
+
+.formTitle{
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 15px;
+    font-size: 23px;
+    background: #cea939;
+}
+
+.form{
+    padding: 20px;
+}

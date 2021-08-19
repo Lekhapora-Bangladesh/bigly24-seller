@@ -69,7 +69,7 @@
     padding: 10px 16px;
     z-index: 9999;
     border-bottom: 1px solid #eaeaea;
-    background-color: #fff;
+    background-color: #0b210c;
 
     > * {
         flex-basis: 100%;
@@ -85,6 +85,7 @@
         text-align: center;
         img {
             max-height: 30px;
+            width: 140px;
         }
     }
 

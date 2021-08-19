@@ -1,23 +1,15 @@
-import Axios from 'axios';
 import React, { useState } from 'react';
-import { getSession, useSession } from 'next-auth/client';
-
+import classes from '../../styles/signup.module.scss'
 import { useForm } from 'react-hook-form';
 
-const FormAccountSettings = () => {
-  const { register, handleSubmit } = useForm();
+const SignUpForm = () => {
   
-  const [session] = useSession();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    // Axios.post('http://localhost:4000/seller/profile', {
-    //   ...data,
-    //   userType: session && session.user.image,
-    //   userId: session && session.user.name,
-    //   // userId: 'SELL4520',
-    //   // userType : 'SELLER'
-    // });
-  };
+      console.log(data);
+  }
+
   return (
     <form
       className="ps-form--account-settings"
@@ -126,4 +118,4 @@ const FormAccountSettings = () => {
   );
 };
 
-export default FormAccountSettings;
+export default SignUpForm
