@@ -13,11 +13,13 @@ import CardTopCountries from '~/components/Dashboard/CardTopCountries';
 import { useDispatch } from 'react-redux';
 import { toggleDrawerMenu } from '~/store/app/action';
 
-const Index = () => {
+const Index = ({session}) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(toggleDrawerMenu(false));
   }, []);
+
+  console.log(session);
 
   return (
     <Layout title="Dashboard">
@@ -39,23 +41,24 @@ const Index = () => {
           <CardTopCountries />
         </div>
       </section>
+
     </Layout>
   );
 };
 
-// export async function getServerSideProps(context) { 
-//   // const session = await getSession({ req: context.req });
-//   // if (!session) {
-//   //   return {
-//   //     redirect: {
-//   //       destination: '/login',
-//   //       permanent: false,
-//   //     },
-//   //   };
-//   // }
-//   return {
-//     props: { session },
-//   };
-// }
+export async function getServerSideProps(context) { 
+  const session = await getSession({ req: context.req });
+  if (!session) { 
+    return {
+      redirect: {
+        destination: '/login',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: { session },
+  };
+}
 
 export default Index;

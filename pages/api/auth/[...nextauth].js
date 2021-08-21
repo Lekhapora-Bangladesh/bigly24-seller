@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Providers from 'next-auth/providers';
 import bcrypt from 'bcrypt';
 import { query } from '../../../lib/db';
+import Axios from 'axios';
 
 export default NextAuth({
   session: {
@@ -11,16 +12,19 @@ export default NextAuth({
     Providers.Credentials({
       async authorize(credentials) {
         let { email, password } = credentials;
-        const user = await query(`Select * from User WHERE Email="${email}"`);
-        if (!user.length) throw new Error('No User Found');
 
-        const isValid = await bcrypt.compare(password, user[0].Password);
-        if (!isValid) throw new Error('Invalid Username or Password');
-        // console.log(user);
+
+        const responseObject = await Axios.post('https://api.bigly24.com/public/api/seller/login', {
+          ...credentials,
+        });
+
+// console.log(responseObject);
+// return responseObject
+
         return {
-          image: user[0].UserType,
-          name: user[0].UserId,
-          email: user[0].Email,
+          // image: user[0].UserType,
+          token: responseObject.data.token,
+          email: responseObject.data.user.email,
         };
       },
     }),

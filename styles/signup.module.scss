@@ -31,3 +31,16 @@
 .form{
     padding: 20px;
 }
+
+
+.errorMessage {
+    
+    color: #bf1650;
+
+    &::before {
+            display: inline;
+            content: "⚠ ";
+          }
+
+}
+
