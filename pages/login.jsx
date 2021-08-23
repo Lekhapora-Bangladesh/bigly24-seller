@@ -24,9 +24,7 @@ const tailLayout = {
 
 const LoginPage = () => {
   const router = useRouter();
-  const onFinish = async (values) => {
-    // console.log('Success:', values);
- 
+  const onFinish = async (values) => { 
 
     const result = await signIn('credentials', {
       redirect: false,
@@ -34,12 +32,6 @@ const LoginPage = () => {
       password : values.password
     });
 
-    // console.log(result[0]);
-
-    // const result = await signIn('token', {
-    //   redirect: false,
-    //   email: responseObject.data.user.email,
-    // });
 
     console.log(result);
     
@@ -57,6 +49,12 @@ const LoginPage = () => {
   };
 
   return (
+
+    <div className={styles.container}>
+      <div className={styles.header} >
+        <img src="/img/logo.jpeg" alt="" style={{width:200}}/>
+      </div>
+    
     <div className={styles.login} id="login">
       <Form
         {...layout}
@@ -68,15 +66,15 @@ const LoginPage = () => {
         className={styles.form}
         onFinishFailed={onFinishFailed}
       >
+
+        {/* <div>
+            <img src="/img/logo.jpeg" alt="" style={{width:250}}/>
+        </div> */}
+
         <Form.Item
           label="Email"
           name="email"
-          rules={[
-            {
-              required: true,
-              message: 'Please input your Email Address!',
-            },
-          ]}
+          rules={[{ type: 'email', message: 'This Email is not valid!' }, { required: true, message: 'Please Provide an E-mail!' }]}
         >
           <Input />
         </Form.Item>
@@ -103,14 +101,17 @@ const LoginPage = () => {
           <Checkbox className={styles.checkbox}>Remember Password</Checkbox>
         </Form.Item>
 
-      <p>Dont have a account? <Link href="/signup"> Signup from Here  </Link>  </p>
-
         <Form.Item {...tailLayout} className={styles.formWrapper}>
           <Button type="primary" htmlType="submit" className={styles.button}>
             Submit
           </Button>
         </Form.Item>
+
+        <p style={{textAlign:'center'}}>Dont have a account? <Link href="/signup"> Signup from Here  </Link>  </p>
+
       </Form>
+    </div>
+
     </div>
   );
 };

@@ -28,6 +28,18 @@
     background:rgba(60, 14, 14, 0.85)
 }
 
+.formHolder{
+    padding: 20px 15rem;
+
+    @media screen and (max-width: 1000px) {
+        padding: 20px 5rem;
+     }
+
+    @media screen and (max-width: 575px) {
+        padding: 20px 0px;
+    }
+}
+
 .form{
     padding: 20px;
 }

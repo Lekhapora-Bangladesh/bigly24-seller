@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { getSession } from 'next-auth/client';
+import { getSession ,useSession } from 'next-auth/client';
 
 import Layout from '~/layouts/ContainerDefault';
 import PageHeader from '~/components/Shared/PageHeader';
@@ -19,7 +19,9 @@ const Index = ({session}) => {
     dispatch(toggleDrawerMenu(false));
   }, []);
 
-  console.log(session);
+  // const [session , loading] = useSession()
+
+  console.log( 'df' ,  session);
 
   return (
     <Layout title="Dashboard">
@@ -41,7 +43,7 @@ const Index = ({session}) => {
           <CardTopCountries />
         </div>
       </section>
-
+{ session &&  console.log(session.user)}
     </Layout>
   );
 };

@@ -1,22 +1,47 @@
-.login {
+
+.container{
   height: 100vh;
-  background: #f7971e;
-  background: -webkit-linear-gradient(
-    to right,
-    #ffd200,
-    #f7971e
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #ffd200, #f7971e);
+  width: 100%;
+}
+
+.login {
+
+  padding: 23.5rem 0;
+
+  background-color: #0b210c;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 1200px) {
+    padding: 19rem 0;
+    height: 100vh;
+}
+}
+
+.header{
+  width:100% ;
+  background : #0b1c0c;
+  text-align: center;
+  padding: 20px 0;
+
+  @media screen and (max-width: 1200px) {
+      display: none;
+  }
 }
 
 .form {
   background-color: #fff;
-  padding: 15rem 10rem 10rem;
-  -webkit-box-shadow: 1px -1px 15px -1px rgba(156, 156, 156, 0.8);
-  box-shadow: 1px -1px 15px -1px rgba(255, 253, 253, 0.8);
+  padding: 8rem 10rem 4rem !important;
+
+  @media screen and (max-width: 1200px) {
+    padding: 5rem 4rem 4rem !important;
+}
+
+//   -webkit-box-shadow: 1px -1px 15px -1px rgba(156, 156, 156, 0.8);
+//   box-shadow: 1px -1px 15px -1px rgba(255, 253, 253, 0.8);
+// 
 }
 
 .formWrapper {

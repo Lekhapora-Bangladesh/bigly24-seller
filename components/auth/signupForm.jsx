@@ -9,6 +9,9 @@ import { Form, Input, Checkbox, Button } from 'antd';
 import Axios from 'axios';
 // import Modal from '../Utils/'
 import Link from 'next/link'
+import { signIn } from 'next-auth/client';
+import { loginSuccess } from '~/store/auth/action';
+
 
 
 const SignUpForm = () => {
@@ -23,6 +26,19 @@ const SignUpForm = () => {
 
     if(responsData.status === 201) {
       console.log('Received values of form: ', responsData);
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: values.email,
+        password : values.password
+      });
+
+      if (!result.error) {
+        //set some auth state
+        console.log('result' , result);
+        loginSuccess(result.token);
+  
+        await router.replace('/');
+      }
     }
 
     else{
@@ -70,6 +86,9 @@ const SignUpForm = () => {
 
 
   return (
+
+    <div className={classes.formHolder}>
+
     <Form
       {...formItemLayout}
       form={form}
@@ -145,9 +164,11 @@ const SignUpForm = () => {
         </Button>
       </Form.Item>
 
-      <p>Already Have an account? <Link href="/login">  Login  </Link>  </p>
-
     </Form>
+
+      <p style={{textAlign:'center' , transform: 'translateX(-4rem)'}}>Already Have an account? <Link href="/login">  Login  </Link>  </p>
+
+    </div>
   );
 };
 
