@@ -2,6 +2,7 @@
 .container{
   height: 100vh;
   width: 100%;
+  
 }
 
 .login {
@@ -14,10 +15,14 @@
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 1200px) {
-    padding: 19rem 0;
+  // @media screen and (max-width: 1380px) {
+  //   padding: 12.5rem 0;
+  // }
+
+  @media screen and (max-width: 1380px) {
+    padding: 12rem 0;
     height: 100vh;
-}
+  }
 }
 
 .header{
@@ -59,5 +64,9 @@
   width: 30rem;
   margin-top: 3rem;
   text-align: center;
+  font-size:20px ;
+  padding:20px 50px ;
+  line-height:0 
+
 }
 
